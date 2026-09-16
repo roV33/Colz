@@ -331,34 +331,24 @@ UserInputService.InputChanged:Connect(function(input)
 
 		local delta = input.Position - dragStart
 
-		frame.Position = UDim2.new(
-			startPosition.X.Scale,
-			startPosition.X.Offset + delta.X,
+		RunService.RenderStepped:Connect(function()
 
-			startPosition.Y.Scale,
-			startPosition.Y.Offset + delta.Y
-		)
-	end
+    local character = player.Character
+    if not character then
+        return
+    end
+
+    local root = character:FindFirstChild("HumanoidRootPart")
+    if not root then
+        return
+    end
+
+    local position = root.Position
+
+    coordinates.Text = string.format(
+        "X: %.1f\nY: %.1f\nZ: %.1f",
+        position.X,
+        position.Y,
+        position.Z
+    )
 end)
-
-
-UserInputService.InputEnded:Connect(function(input)
-
-	if input.UserInputType == Enum.UserInputType.MouseButton1
-		or input.UserInputType == Enum.UserInputType.Touch then
-
-		dragging = false
-	end
-end)
-
-
-
-RunService.RenderStepped:Connect(function()
-
-	local character = player.Character
-
-	if not character then
-		return
-	end
-
-	local root = character:FindFirstChild("
