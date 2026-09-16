@@ -12,8 +12,8 @@ local IMAGE_ID = "rbxassetid://85440565007657"
 local gui = Instance.new("ScreenGui")
 gui.Name = "CoordinateGui"
 gui.ResetOnSpawn = false
+gui.DisplayOrder = 999
 gui.Parent = player:WaitForChild("PlayerGui")
-
 
 
 local frame = Instance.new("Frame")
