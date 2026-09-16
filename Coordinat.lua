@@ -6,7 +6,7 @@ local TweenService = game:GetService("TweenService")
 local player = Players.LocalPlayer
 
 
-local IMAGE_ID = "rbxassetid://YOUR_IMAGE_ID"
+local IMAGE_ID = "rbxassetid://85440565007657"
 
 
 local gui = Instance.new("ScreenGui")
@@ -33,7 +33,7 @@ local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1, -20, 0, 35)
 title.Position = UDim2.new(0, 10, 0, 5)
 title.BackgroundTransparency = 1
-title.Text = "📍 Coordinates"
+title.Text = "Coordinates"
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
 title.TextSize = 18
 title.Font = Enum.Font.GothamBold
