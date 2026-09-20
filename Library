@@ -1,1 +1,18 @@
+local games = {
+   
+    
+}
 
+local currentPlaceID = game.PlaceId
+local currentUniverseID = game.GameId
+
+local scriptURL = games[currentUniverseID] or games[currentPlaceID]
+
+if scriptURL then
+    print("colz Hub: Loading game script")
+    loadstring(game:HttpGet(scriptURL))()
+else
+    print("colz Hub: Game tidak ada di list, loading Universal UI...")
+
+    loadstring(game:HttpGet(""))()
+end
