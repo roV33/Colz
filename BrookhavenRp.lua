@@ -1,11 +1,19 @@
-local WindUI = loadstring(game:HttpGet(
-    "https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"
-))()
+print("[TEST 1] Script mulai")
 
-print("[TEST] WindUI berhasil dimuat")
+local ok, WindUI = pcall(function()
+    return loadstring(game:HttpGet(
+        "https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"
+    ))()
+end)
 
-local Success, Result = pcall(function()
+print("[TEST 2] Loader:", ok, WindUI)
 
+if not ok then
+    warn("[TEST] WindUI gagal dimuat:", WindUI)
+    return
+end
+
+local success, Window = pcall(function()
     return WindUI:CreateWindow({
         Title = "PlatoBoost Test",
 
@@ -326,20 +334,18 @@ end
 -------------------------------------------------------------------------------
                 {
                     Type = "platoboost",
-
-                    ServiceId = 33919, -- GANTI dengan Service ID kamu
-                    Secret = "ff18c415-9a41-4703-9301-18b2b6925478", -- GANTI dengan Secret kamu
+                    ServiceId = 33919, -- isi Service ID kamu
+                    Secret = "ff18c415-9a41-4703-9301-18b2b6925478", -- isi Secret kamu
                 },
             },
         },
     })
-
 end)
 
-print("[TEST] CreateWindow:", Success, Result)
+print("[TEST 3] CreateWindow:", success, Window)
 
-if Success then
-    print("[TEST] PlatoBoost KeySystem berhasil dibuat!")
+if success then
+    print("[TEST] CreateWindow berhasil!")
 else
-    warn("[TEST] ERROR:", Result)
+    warn("[TEST] CreateWindow ERROR:", Window)
 end
