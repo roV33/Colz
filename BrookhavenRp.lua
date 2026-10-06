@@ -1,4 +1,4 @@
-print("[TEST 1] Script mulai")
+print("[1] Script mulai")
 
 local ok, WindUI = pcall(function()
     return loadstring(game:HttpGet(
@@ -6,12 +6,14 @@ local ok, WindUI = pcall(function()
     ))()
 end)
 
-print("[TEST 2] Loader:", ok, WindUI)
+print("[2] WindUI:", ok, WindUI)
 
 if not ok then
-    warn("[TEST] WindUI gagal dimuat:", WindUI)
+    warn("[ERROR] WindUI gagal:", WindUI)
     return
 end
+
+print("[3] Sebelum CreateWindow")
 
 local success, Window = pcall(function()
     return WindUI:CreateWindow({
@@ -334,18 +336,20 @@ end
 -------------------------------------------------------------------------------
                 {
                     Type = "platoboost",
-                    ServiceId = 33919, -- isi Service ID kamu
-                    Secret = "ff18c415-9a41-4703-9301-18b2b6925478", -- isi Secret kamu
+                    ServiceId = 33919, -- GANTI
+                    Secret = "ff18c415-9a41-4703-9301-18b2b6925478", -- GANTI
                 },
             },
         },
     })
 end)
 
-print("[TEST 3] CreateWindow:", success, Window)
+print("[4] Sesudah CreateWindow")
+print("[4] Success:", success)
+print("[4] Result:", Window)
 
 if success then
-    print("[TEST] CreateWindow berhasil!")
+    print("[5] CreateWindow berhasil!")
 else
-    warn("[TEST] CreateWindow ERROR:", Window)
+    warn("[5] CreateWindow ERROR:", Window)
 end
