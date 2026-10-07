@@ -1,26 +1,15 @@
-print("[1] Script mulai")
+local WindUI = loadstring(game:HttpGet(
+    "https://github.com/Footagesus/WindUI/releases/download/1.6.66/main.lua"
+))()
 
-local ok, WindUI = pcall(function()
-    return loadstring(game:HttpGet(
-        "https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"
-    ))()
-end)
+print("[TEST] WindUI loaded")
 
-print("[2] WindUI:", ok, WindUI)
-
-if not ok then
-    warn("[ERROR] WindUI gagal:", WindUI)
-    return
-end
-
-print("[3] Sebelum CreateWindow")
-
-local success, Window = pcall(function()
+local ok, Window = pcall(function()
     return WindUI:CreateWindow({
         Title = "PlatoBoost Test",
 
         KeySystem = {
-            Note = "Testing PlatoBoost.",
+            Note = "Testing PlatoBoost",
 
             API = {-------------------------------------------------------------------------------
 --! json library
@@ -336,20 +325,16 @@ end
 -------------------------------------------------------------------------------
                 {
                     Type = "platoboost",
-                    ServiceId = 33919, -- GANTI
-                    Secret = "ff18c415-9a41-4703-9301-18b2b6925478", -- GANTI
+                    ServiceId = 33919, -- ganti dengan Service ID kamu
+                    Secret = "ff18c415-9a41-4703-9301-18b2b6925478", -- ganti dengan Secret kamu
                 },
             },
         },
     })
 end)
 
-print("[4] Sesudah CreateWindow")
-print("[4] Success:", success)
-print("[4] Result:", Window)
+print("[TEST] CreateWindow:", ok, Window)
 
-if success then
-    print("[5] CreateWindow berhasil!")
-else
-    warn("[5] CreateWindow ERROR:", Window)
+if not ok then
+    warn("[TEST] ERROR:", Window)
 end
